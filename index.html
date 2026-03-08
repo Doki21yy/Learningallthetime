@@ -35,19 +35,18 @@
 </div>
 
 <div class="container">
+    <div class="platform-tabs" id="platformTabs">
+        <button class="tab-btn active" data-platform="">All</button>
+    </div>
+
     <div class="toolbar">
         <input type="text" id="searchInput" class="search-input" placeholder="Search videos..." />
-        <div class="filter-group">
-            <select id="sortSelect" class="filter-select">
-                <option value="date-desc">Latest first</option>
-                <option value="date-asc">Oldest first</option>
-                <option value="score-desc">Highest score</option>
-                <option value="score-asc">Lowest score</option>
-            </select>
-            <select id="platformFilter" class="filter-select">
-                <option value="">All platforms</option>
-            </select>
-        </div>
+        <select id="sortSelect" class="filter-select">
+            <option value="date-desc">Latest first</option>
+            <option value="date-asc">Oldest first</option>
+            <option value="score-desc">Highest score</option>
+            <option value="score-asc">Lowest score</option>
+        </select>
     </div>
 
     <div class="video-grid" id="videoGrid">
@@ -65,6 +64,7 @@
 
 <script>
 let allVideos = [];
+let activePlatform = '';
 
 async function loadCatalog() {
     try {
@@ -73,7 +73,7 @@ async function loadCatalog() {
         const catalog = await resp.json();
         allVideos = catalog.videos || [];
         updateStats(catalog);
-        populatePlatformFilter();
+        buildPlatformTabs();
         renderVideos();
     } catch (e) {
         document.getElementById('videoGrid').innerHTML =
@@ -98,20 +98,50 @@ function updateStats(catalog) {
     }
 }
 
-function populatePlatformFilter() {
+const platformLabels = {
+    'YouTube': 'YouTube',
+    'Bilibili': 'Bilibili',
+    'Douyin': 'Douyin',
+    'Xiaohongshu': 'Xiaohongshu',
+    'TikTok': 'TikTok'
+};
+
+function buildPlatformTabs() {
     const platforms = [...new Set(allVideos.map(v => v.platform).filter(Boolean))];
-    const select = document.getElementById('platformFilter');
+    const container = document.getElementById('platformTabs');
+    // Count per platform
+    const counts = {};
+    allVideos.forEach(v => { counts[v.platform] = (counts[v.platform] || 0) + 1; });
+
+    // "All" tab already exists, add count
+    container.querySelector('[data-platform=""]').textContent = 'All (' + allVideos.length + ')';
+
     platforms.forEach(p => {
-        const opt = document.createElement('option');
-        opt.value = p;
-        opt.textContent = p;
-        select.appendChild(opt);
+        const btn = document.createElement('button');
+        btn.className = 'tab-btn';
+        btn.dataset.platform = p;
+        btn.textContent = (platformLabels[p] || p) + ' (' + (counts[p] || 0) + ')';
+        btn.addEventListener('click', () => {
+            container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activePlatform = p;
+            renderVideos();
+        });
+        container.appendChild(btn);
+    });
+
+    // "All" tab click handler
+    container.querySelector('[data-platform=""]').addEventListener('click', function() {
+        container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        activePlatform = '';
+        renderVideos();
     });
 }
 
 function getFilteredVideos() {
     const query = document.getElementById('searchInput').value.toLowerCase();
-    const platform = document.getElementById('platformFilter').value;
+    const platform = activePlatform;
     const sort = document.getElementById('sortSelect').value;
 
     let filtered = allVideos.filter(v => {
@@ -216,7 +246,6 @@ function escapeHtml(str) {
 // Event listeners
 document.getElementById('searchInput').addEventListener('input', renderVideos);
 document.getElementById('sortSelect').addEventListener('change', renderVideos);
-document.getElementById('platformFilter').addEventListener('change', renderVideos);
 
 // Init
 loadCatalog();
