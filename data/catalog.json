@@ -1,5 +1,30 @@
 {
-  "last_updated": "2026-03-08T03:56:49.919174",
-  "total_videos": 0,
-  "videos": []
+  "last_updated": "2026-03-08T03:57:07.938469",
+  "total_videos": 2,
+  "videos": [
+    {
+      "slug": "20260307_skill80token",
+      "title": "这个skill抓取网页省80%token理解还更准了",
+      "score": 7.9,
+      "summary": "这是面向AI Agent（OpenClaw）用户的实用工具教程，讲解Smart Web Fetch技能替代内置网页抓取工具，解决token浪费、理解效率低的痛点，逻辑清晰实操性强，精准命中技术类受众需求。",
+      "duration": 201.566313,
+      "date": "2026-03-07",
+      "platform": "Bilibili",
+      "source_url": "",
+      "thumbnail": "data/videos/20260307_skill80token/thumbnail.jpg",
+      "report": "data/videos/20260307_skill80token/report.html"
+    },
+    {
+      "slug": "20260307_we-built-an-ai-render-engine-for-free",
+      "title": "We Built an AI Render Engine for FREE",
+      "score": 7.8,
+      "summary": "这是一条优质AI技术教学视频，开头用3D白模转AI渲染的强烈反差抓眼，完整讲解可落地的3D动画AI渲染工作流，逻辑清晰实操性强，适合创意从业者学习，不足是互动引导弱、部分操作段节奏偏慢。",
+      "duration": 929.401995,
+      "date": "2026-03-07",
+      "platform": "YouTube",
+      "source_url": "",
+      "thumbnail": "data/videos/20260307_we-built-an-ai-render-engine-for-free/thumbnail.jpg",
+      "report": "data/videos/20260307_we-built-an-ai-render-engine-for-free/report.html"
+    }
+  ]
 }
