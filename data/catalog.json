@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-08T03:57:07.938469",
+  "last_updated": "2026-03-08T04:18:20.318547",
   "total_videos": 2,
   "videos": [
     {
@@ -10,7 +10,7 @@
       "duration": 201.566313,
       "date": "2026-03-07",
       "platform": "Bilibili",
-      "source_url": "",
+      "source_url": "https://www.bilibili.com/video/BV1XQSKYeEJv",
       "thumbnail": "data/videos/20260307_skill80token/thumbnail.jpg",
       "report": "data/videos/20260307_skill80token/report.html"
     },
@@ -22,7 +22,7 @@
       "duration": 929.401995,
       "date": "2026-03-07",
       "platform": "YouTube",
-      "source_url": "",
+      "source_url": "https://www.youtube.com/watch?v=0WkixvqnPXw",
       "thumbnail": "data/videos/20260307_we-built-an-ai-render-engine-for-free/thumbnail.jpg",
       "report": "data/videos/20260307_we-built-an-ai-render-engine-for-free/report.html"
     }
