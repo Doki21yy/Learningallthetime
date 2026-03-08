@@ -84,7 +84,6 @@ body {
 .search-input:focus { border-color: #a78bfa; }
 .search-input::placeholder { color: #555; }
 
-.filter-group { display: flex; gap: 8px; }
 .filter-select {
     padding: 10px 12px;
     border-radius: 8px;
@@ -96,6 +95,37 @@ body {
     outline: none;
 }
 .filter-select:focus { border-color: #a78bfa; }
+
+/* Platform Tabs */
+.platform-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #1e1e3a;
+    flex-wrap: wrap;
+}
+.tab-btn {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid #2a2a4a;
+    background: transparent;
+    color: #888;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+.tab-btn:hover {
+    border-color: #a78bfa;
+    color: #c4b5fd;
+}
+.tab-btn.active {
+    background: #a78bfa;
+    color: #fff;
+    border-color: #a78bfa;
+    font-weight: 600;
+}
 
 /* Video Grid */
 .video-grid {
