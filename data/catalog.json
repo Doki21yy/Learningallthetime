@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-08T04:18:20.318547",
+  "last_updated": "2026-03-08T06:02:21.835652",
   "total_videos": 2,
   "videos": [
     {
@@ -12,7 +12,12 @@
       "platform": "Bilibili",
       "source_url": "https://www.bilibili.com/video/BV1XQSKYeEJv",
       "thumbnail": "data/videos/20260307_skill80token/thumbnail.jpg",
-      "report": "data/videos/20260307_skill80token/report.html"
+      "report": "data/videos/20260307_skill80token/report.html",
+      "type": "learning",
+      "difficulty": "intermediate",
+      "category": "AI/技术",
+      "learning_rating": 7.9,
+      "topic": "这个skill抓取网页省80%token理解还更准了"
     },
     {
       "slug": "20260307_we-built-an-ai-render-engine-for-free",
@@ -24,7 +29,12 @@
       "platform": "YouTube",
       "source_url": "https://www.youtube.com/watch?v=0WkixvqnPXw",
       "thumbnail": "data/videos/20260307_we-built-an-ai-render-engine-for-free/thumbnail.jpg",
-      "report": "data/videos/20260307_we-built-an-ai-render-engine-for-free/report.html"
+      "report": "data/videos/20260307_we-built-an-ai-render-engine-for-free/report.html",
+      "type": "learning",
+      "difficulty": "intermediate",
+      "category": "AI/技术",
+      "learning_rating": 7.8,
+      "topic": "We Built an AI Render Engine for FREE"
     }
   ]
 }
