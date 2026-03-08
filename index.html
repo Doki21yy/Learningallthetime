@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Learning Library</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <h1 class="site-title">Video Learning Library</h1>
+        <p class="site-subtitle">Long-term video analysis & viral formula extraction</p>
+    </div>
+</header>
+
+<div class="stats-bar" id="statsBar">
+    <div class="stat-item">
+        <span class="stat-value" id="statTotal">--</span>
+        <span class="stat-label">Videos Analyzed</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value" id="statAvgScore">--</span>
+        <span class="stat-label">Avg Score</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value" id="statWatchTime">--</span>
+        <span class="stat-label">Total Watch Time</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value" id="statLatest">--</span>
+        <span class="stat-label">Latest Analysis</span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="toolbar">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search videos..." />
+        <div class="filter-group">
+            <select id="sortSelect" class="filter-select">
+                <option value="date-desc">Latest first</option>
+                <option value="date-asc">Oldest first</option>
+                <option value="score-desc">Highest score</option>
+                <option value="score-asc">Lowest score</option>
+            </select>
+            <select id="platformFilter" class="filter-select">
+                <option value="">All platforms</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="video-grid" id="videoGrid">
+        <div class="loading">Loading catalog...</div>
+    </div>
+
+    <div class="empty-state" id="emptyState" style="display:none">
+        <p>No videos found matching your criteria.</p>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <p>Powered by <a href="https://github.com/anthropics/claude-code" target="_blank">Claude Code</a> video-optimize skill</p>
+</footer>
+
+<script>
+let allVideos = [];
+
+async function loadCatalog() {
+    try {
+        const resp = await fetch('data/catalog.json');
+        if (!resp.ok) throw new Error('Catalog not found');
+        const catalog = await resp.json();
+        allVideos = catalog.videos || [];
+        updateStats(catalog);
+        populatePlatformFilter();
+        renderVideos();
+    } catch (e) {
+        document.getElementById('videoGrid').innerHTML =
+            '<div class="loading">No videos yet. Run /video-optimize to add your first analysis.</div>';
+    }
+}
+
+function updateStats(catalog) {
+    document.getElementById('statTotal').textContent = catalog.total_videos || 0;
+    const videos = catalog.videos || [];
+    if (videos.length > 0) {
+        const avg = videos.reduce((s, v) => s + (v.score || 0), 0) / videos.length;
+        document.getElementById('statAvgScore').textContent = avg.toFixed(1);
+
+        const totalSec = videos.reduce((s, v) => s + (v.duration || 0), 0);
+        const hours = Math.floor(totalSec / 3600);
+        const mins = Math.floor((totalSec % 3600) / 60);
+        document.getElementById('statWatchTime').textContent =
+            hours > 0 ? hours + 'h ' + mins + 'm' : mins + 'm';
+
+        document.getElementById('statLatest').textContent = videos[0].date || '--';
+    }
+}
+
+function populatePlatformFilter() {
+    const platforms = [...new Set(allVideos.map(v => v.platform).filter(Boolean))];
+    const select = document.getElementById('platformFilter');
+    platforms.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p;
+        opt.textContent = p;
+        select.appendChild(opt);
+    });
+}
+
+function getFilteredVideos() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const platform = document.getElementById('platformFilter').value;
+    const sort = document.getElementById('sortSelect').value;
+
+    let filtered = allVideos.filter(v => {
+        if (query && !v.title.toLowerCase().includes(query) &&
+            !v.summary.toLowerCase().includes(query)) return false;
+        if (platform && v.platform !== platform) return false;
+        return true;
+    });
+
+    filtered.sort((a, b) => {
+        switch (sort) {
+            case 'date-desc': return (b.date || '').localeCompare(a.date || '');
+            case 'date-asc': return (a.date || '').localeCompare(b.date || '');
+            case 'score-desc': return (b.score || 0) - (a.score || 0);
+            case 'score-asc': return (a.score || 0) - (b.score || 0);
+            default: return 0;
+        }
+    });
+
+    return filtered;
+}
+
+function scoreColor(score) {
+    if (score >= 8) return '#22c55e';
+    if (score >= 6) return '#eab308';
+    if (score >= 4) return '#f97316';
+    return '#ef4444';
+}
+
+function formatDuration(seconds) {
+    if (!seconds) return '--';
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return m + ':' + String(s).padStart(2, '0');
+}
+
+function platformIcon(platform) {
+    const icons = {
+        'YouTube': 'YT',
+        'Bilibili': 'B',
+        'Douyin': 'DY',
+        'Xiaohongshu': 'XHS',
+        'TikTok': 'TT'
+    };
+    return icons[platform] || '?';
+}
+
+function platformColorClass(platform) {
+    const colors = {
+        'YouTube': 'platform-youtube',
+        'Bilibili': 'platform-bilibili',
+        'Douyin': 'platform-douyin',
+        'Xiaohongshu': 'platform-xiaohongshu',
+        'TikTok': 'platform-tiktok'
+    };
+    return colors[platform] || 'platform-default';
+}
+
+function renderVideos() {
+    const grid = document.getElementById('videoGrid');
+    const empty = document.getElementById('emptyState');
+    const videos = getFilteredVideos();
+
+    if (videos.length === 0) {
+        grid.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+    }
+    empty.style.display = 'none';
+
+    grid.innerHTML = videos.map(v => {
+        const color = scoreColor(v.score);
+        const pClass = platformColorClass(v.platform);
+        return `
+        <a class="video-card" href="${v.report || '#'}">
+            <div class="card-thumb">
+                <img src="${v.thumbnail || ''}" alt="" loading="lazy"
+                     onerror="this.style.display='none'" />
+                <span class="card-duration">${formatDuration(v.duration)}</span>
+                <span class="card-platform ${pClass}">${platformIcon(v.platform)}</span>
+            </div>
+            <div class="card-body">
+                <div class="card-header">
+                    <div class="card-score" style="background:${color}">${v.score || '?'}</div>
+                    <div class="card-meta">
+                        <h3 class="card-title">${escapeHtml(v.title || 'Untitled')}</h3>
+                        <span class="card-date">${v.date || ''}</span>
+                    </div>
+                </div>
+                <p class="card-summary">${escapeHtml((v.summary || '').substring(0, 120))}${(v.summary || '').length > 120 ? '...' : ''}</p>
+            </div>
+        </a>`;
+    }).join('');
+}
+
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+// Event listeners
+document.getElementById('searchInput').addEventListener('input', renderVideos);
+document.getElementById('sortSelect').addEventListener('change', renderVideos);
+document.getElementById('platformFilter').addEventListener('change', renderVideos);
+
+// Init
+loadCatalog();
+</script>
+
+</body>
+</html>
