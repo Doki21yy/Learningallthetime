@@ -1,0 +1,247 @@
+{
+  "title_cn": "Google Stitch 2.0 × Claude Code 工作流：AI网页设计的革命性整合",
+  "topic": "Google Stitch 2.0与Claude Code的AI网页设计完整工作流教程",
+  "category": "AI工具",
+  "tags": [
+    "Stitch 2.0",
+    "Claude Code",
+    "Gemini 3.1",
+    "AI网页设计",
+    "前端开发",
+    "AI工作流",
+    "Google AI",
+    "Figma替代"
+  ],
+  "difficulty": "beginner",
+  "learning_rating": 9.0,
+  "speaker": "Chase AI",
+  "language": "英文",
+  "video_info": {
+    "publish_date": "2026-03",
+    "views_estimate": "近期热门"
+  },
+  "overview": "本视频介绍了Google发布的全新AI设计工具Stitch 2.0，它集成Gemini 3.1模型，专门解决Claude Code等AI编码工具在前端设计方面的短板。视频详细演示了「灵感采集 → Stitch生成设计 → Claude Code完善后端」的工作流程，展示了如何用AI快速生成专业级网站前端。Stitch发布后Figma股价应声下跌近8%。",
+  "sections": [
+    {
+      "title": "Stitch 2.0 核心价值定位",
+      "content": "Stitch 2.0是Google发布的全新AI设计工具，基于Gemini 3.1模型，专门解决AI编程工具在前端设计方面的短板。通过「灵感 → Stitch → Claude Code」工作流，用户可快速生成高质量、看起来不像AI垃圾的网站。\n\n核心优势：\n1. **所见即所得**：无限画布设计，快速预览多版本\n2. **极速迭代**：秒级生成多个设计变体\n3. **自动设计系统**：从截图和提示词自动提取设计规范\n4. **完全免费**：无需消耗Token\n5. **降低门槛**：非专业设计师也能快速产出高质量原型",
+      "subsections": []
+    },
+    {
+      "title": "推荐工作流程详解",
+      "content": "完整工作流程分为4个步骤：\n\n1. **寻找灵感**\n   - 在Dribbble、Godly、Website或Pinterest搜索喜欢的设计风格\n   - 截图保存作为设计参考\n\n2. **Stitch设计生成**\n   - 上传截图 + 简单描述需求\n   - 自动生成设计系统和多版本原型\n   - 支持布局、配色、图片等多种变体\n\n3. **导出到Claude Code**\n   - 一键复制代码\n   - 在Claude Code中完善后端逻辑\n\n4. **部署上线**\n   - GitHub + Vercel完成部署",
+      "subsections": []
+    },
+    {
+      "title": "Stitch核心功能演示",
+      "content": "**设计系统生成**\n自动从截图和提示词中提取设计规范，包括主色/次色/中性色定义、字体选择、圆角规范、组件样式等。\n\n**快速迭代**\n一键生成多个变体版本，支持布局变体、配色变体、图片变体、自定义创意范围。使用explore功能可获取3种不同方案对比。\n\n**可视化编辑**\n点击即可编辑单个组件或整体布局，支持实时预览和全屏模式。\n\n**Live Mode**\nAI实时观察屏幕并对话交互，可通过语音控制设计修改，添加动态背景和鼠标跟随效果。\n\n**导出选项**\n支持复制代码到剪贴板、发送到AI Studio、导出到Figma、发送到Jules等多种方式。",
+      "subsections": []
+    },
+    {
+      "title": "与Claude Code的对比分析",
+      "content": "Stitch 2.0 vs 纯Claude Code前端设计：\n\n| 维度 | Stitch 2.0 | Claude Code (纯) |\n| --- | --- | --- |\n| 视觉设计质量 | ⭐⭐⭐⭐⭐ 专业级 | ⭐⭐ 容易出现AI感 |\n| 迭代速度 | ⭐⭐⭐⭐⭐ 秒级生成多版本 | ⭐⭐ 每次需等待重生成 |\n| 所见即所得 | ✅ 无限画布预览 | ❌ 需启动开发服务器 |\n| 组件编辑 | ✅ 点选即改 | ❌ 需描述修改 |\n| 灵感融合 | ✅ 支持截图参考 | ❌ 仅靠文字描述 |\n| 成本 | 🆓 完全免费 | 💰 消耗Token |",
+      "subsections": []
+    }
+  ],
+  "resources": [
+    {
+      "name": "Google Stitch",
+      "url": "https://stitch.google.com",
+      "description": "Google Stitch 2.0官方入口，基于Gemini 3.1的AI设计工具",
+      "type": "website"
+    },
+    {
+      "name": "Claude Code",
+      "url": "https://claude.ai/code",
+      "description": "Anthropic发布的AI编程工具，用于完善后端逻辑和交互",
+      "type": "website"
+    },
+    {
+      "name": "Dribbble",
+      "url": "https://dribbble.com",
+      "description": "设计灵感采集平台，可搜索landing page等设计参考",
+      "type": "website"
+    },
+    {
+      "name": "Pinterest",
+      "url": "https://pinterest.com",
+      "description": "UX设计灵感搜索工具，适合找landing page设计参考",
+      "type": "website"
+    }
+  ],
+  "key_tips": [
+    "Stitch + Claude Code是当前最高效的AI网页设计工作流组合",
+    "在Pinterest搜索「landing page design」能找到大量高质量设计参考",
+    "Stitch的explore功能可以一次生成3种不同方案，大幅提升设计效率",
+    "生成的代码复制到Claude Code后，仍需人工完善后端交互逻辑",
+    "Stitch完全免费，是专业设计师和AI编程工具之间的完美桥梁"
+  ],
+  "faq": [
+    {
+      "question": "Stitch会取代Claude Code吗？",
+      "answer": "不会。Stitch专注于前端设计，Claude Code专注于后端逻辑和交互。两者配合使用才能发挥最大价值。"
+    },
+    {
+      "question": "Stitch适合专业设计师吗？",
+      "answer": "不太适合。Stitch主要面向非专业设计师，帮助快速生成原型。专业设计师仍建议使用Figma等工具。"
+    },
+    {
+      "question": "生成的代码质量如何？",
+      "answer": "Stitch可生成80-90%的设计代码，导出到Claude Code后需要完善后端逻辑。最终效果可达到专业级网站水准。"
+    }
+  ],
+  "hardware_requirements": "仅需浏览器即可使用Stitch，无需高端硬件",
+  "target_audience": [
+    "AI编程爱好者",
+    "前端设计新手",
+    "独立开发者",
+    "创业者和创作者",
+    "想快速搭建网站的用户"
+  ],
+  "summary": "本视频系统介绍了Google Stitch 2.0与Claude Code的整合工作流，展示了如何通过AI快速完成专业级网页设计。Stitch解决了AI编程工具在前端设计方面的短板，通过「灵感采集 → Stitch生成 → Claude Code完善」的流程，用户可快速获得高质量网站前端。视频强调了Stitch在设计迭代、所见即所得、截图参考等方面的优势，以及它对Figma等传统工具造成的冲击。适合想用AI提升网页设计效率的非专业设计师和独立开发者学习使用。",
+  "related_links": [
+    {
+      "label": "Chase AI YouTube频道",
+      "url": "https://www.youtube.com/@chaseai"
+    },
+    {
+      "label": "Google Stitch官网",
+      "url": "https://stitch.google.com"
+    }
+  ],
+  "scene_breakdown": {
+    "chapters": [
+      {
+        "chapter": "开场：Stitch发布与Figma股价下跌",
+        "start": "0",
+        "end": "90",
+        "scenes": [
+          {
+            "scene_id": "1-1",
+            "start": "0",
+            "end": "60",
+            "visual": "Chase AI在工作室介绍Stitch 2.0",
+            "narration": "介绍Stitch 2.0发布和Figma股价下跌8%的情况",
+            "core_concept": "Stitch是Google发布的革命性AI设计工具",
+            "teaching_method": "讲解",
+            "clarity": "high",
+            "note": "强调Stitch对现有设计工具市场的冲击"
+          }
+        ]
+      },
+      {
+        "chapter": "价值定位与工作流介绍",
+        "start": "90",
+        "end": "180",
+        "scenes": [
+          {
+            "scene_id": "2-1",
+            "start": "90",
+            "end": "180",
+            "visual": "Stitch界面演示",
+            "narration": "说明Stitch + Claude Code的工作流组合价值",
+            "core_concept": "Stitch弥补Claude Code在前端设计方面的短板",
+            "teaching_method": "演示",
+            "clarity": "high",
+            "note": "强调两者配合使用的重要性"
+          }
+        ]
+      },
+      {
+        "chapter": "实操演示：灵感采集到设计生成",
+        "start": "180",
+        "end": "480",
+        "scenes": [
+          {
+            "scene_id": "3-1",
+            "start": "180",
+            "end": "300",
+            "visual": "在Pinterest搜索landing page设计",
+            "narration": "演示如何在Pinterest找到设计灵感并截图",
+            "core_concept": "设计灵感采集的方法和平台推荐",
+            "teaching_method": "实操演示",
+            "clarity": "high",
+            "note": "推荐Dribbble、Godly、Pinterest三个平台"
+          },
+          {
+            "scene_id": "3-2",
+            "start": "300",
+            "end": "400",
+            "visual": "Stitch界面：上传截图并描述需求",
+            "narration": "演示在Stitch中粘贴截图并用简单语言描述需求",
+            "core_concept": "Stitch的截图参考和自然语言描述功能",
+            "teaching_method": "实操演示",
+            "clarity": "high",
+            "note": "即使提示词很简单，Stitch也能生成不错的效果"
+          },
+          {
+            "scene_id": "3-3",
+            "start": "400",
+            "end": "480",
+            "visual": "设计系统和多版本变体展示",
+            "narration": "介绍自动生成的设计系统和explore变体功能",
+            "core_concept": "Stitch自动创建设计规范和快速迭代能力",
+            "teaching_method": "演示",
+            "clarity": "high",
+            "note": "强调秒级生成多版本的设计效率"
+          }
+        ]
+      },
+      {
+        "chapter": "导出与Claude Code集成",
+        "start": "480",
+        "end": "720",
+        "scenes": [
+          {
+            "scene_id": "4-1",
+            "start": "480",
+            "end": "600",
+            "visual": "导出代码到剪贴板",
+            "narration": "演示如何从Stitch导出代码并复制到剪贴板",
+            "core_concept": "Stitch的代码导出功能",
+            "teaching_method": "实操演示",
+            "clarity": "high",
+            "note": "多种导出方式：剪贴板、AI Studio、Figma、Jules"
+          },
+          {
+            "scene_id": "4-2",
+            "start": "600",
+            "end": "720",
+            "visual": "Claude Code中粘贴代码并生成完整网站",
+            "narration": "演示在Claude Code中粘贴代码并生成最终网站",
+            "core_concept": "Claude Code处理后端逻辑和完整网站生成",
+            "teaching_method": "实操演示",
+            "clarity": "high",
+            "note": "展示从设计到完整网站的端到端流程"
+          }
+        ]
+      },
+      {
+        "chapter": "总结与市场影响",
+        "start": "720",
+        "end": "900",
+        "scenes": [
+          {
+            "scene_id": "5-1",
+            "start": "720",
+            "end": "900",
+            "visual": "最终效果展示",
+            "narration": "总结Stitch + Claude Code工作流的价值和市场影响",
+            "core_concept": "AI网页设计的未来趋势",
+            "teaching_method": "总结",
+            "clarity": "high",
+            "note": "强调这一工作流对非专业设计师的帮助"
+          }
+        ]
+      }
+    ]
+  },
+  "_meta": {
+    "title": "Google Stitch 2.0 × Claude Code 工作流",
+    "type": "learning",
+    "analyzed_at": "2026-03-22T16:30:00.000000",
+    "video_duration": 900,
+    "video_size_mb": null,
+    "source_url": "https://www.youtube.com/watch?v=qqcpiDXPCvY"
+  }
+}
